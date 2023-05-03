@@ -1,0 +1,30 @@
+// Set the number of variations to generate
+const numVariations = 500;
+
+// Set the size of each variation
+const variationWidth = 400;
+const variationHeight = 400;
+
+function setup() {
+  // Create a canvas for each variation
+  for (let i = 0; i < numVariations; i++) {
+    createCanvas(variationWidth, variationHeight);
+  }
+}
+
+function draw() {
+  // Generate each variation
+  for (let i = 0; i < numVariations; i++) {
+    // Set the random seed to ensure each variation is unique
+    randomSeed(i);
+
+    // Draw the background
+    background(220);
+
+    // Draw 10 randomly placed and colored ellipses
+    for (let j = 0; j < 10; j++) {
+      fill(random(255), random(255), random(255));
+      ellipse(random(width), random(height), 50, 50);
+    }
+  }
+}
